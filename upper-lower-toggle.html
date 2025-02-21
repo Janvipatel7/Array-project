@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+</head>
+<body>
+
+    <div class="m-2">
+        <h4>Upper / Lower / Toggle Case</h4>
+        <div>
+            <label for="val">Enter String :</label>
+            <input type="text" id="val" required>
+        </div>
+        <div class="m-3">
+            <button class="upper me-2">Upper Case</button>
+            <button class="lower me-2">Lower Case</button>
+            <button class="toggle">Toggle Case</button>
+        </div>
+        <div class="m-2 mt-2">
+            <label for="ans">Ans String :</label>
+            <input type="text" name="" id="ans">
+        </div>
+    </div>
+    
+
+    <script src="./assets/js/jquery.js"></script>
+    <script>
+        let value = document.getElementById("val");
+        let ans = document.getElementById("ans");
+
+
+        $(document).ready(function () {
+            $(".upper").on("click", function () {
+                upper(val.value);
+            })
+            $(".lower").on("click" , function () {
+                lower(val.value);
+            })
+            $(".toggle").on("click", function () {
+                toggle(val.value);
+            })
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+</head>
+<body>
+
+    <div class="m-4">
+        <h3>Longest Word Find</h3>
+        <label for="str" class="fs-5">Enter String :</label>
+        <input type="text" id="str" required>
+        <button class="btn btn-success" id="submit">Submit</button>
+
+        <div class="fs-5"> <span id="ans">Ans :</span></div>
+    </div>
+    
+
+    <script src="./assets/js/jquery.js"></script>
+    <script>
+        let str = document.getElementById("str");
+        let ans = document.getElementById("ans");
+
+        function longestWord(str){
+            let inputStr = document.getElementById('str').value;
+            let words = inputStr.split(" ");
+            let longestWord = "";
+
+
+            for(let i = 0; i < words.length; i++){
+                let cleanWord = words[i].replace(" ");
+                if(cleanWord.length  > longestWord.length){ 
+                    longestWord = cleanWord;
+                }
+            }
+
+            document.getElementById("ans").innerHTML = longestWord;
+        }
+
+        $(document).ready(function () {
+            $("#submit").on("click", function () {
+                longestWord(str);
+            })
+        });
+    </script>
+</body>
+</html>
