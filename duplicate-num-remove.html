@@ -15,45 +15,37 @@
             <div class="m-3 text-center box ">
                 <div class="floating-shadow"></div>
 
-                <h2 class="mb-4">Palindrome Or Not</h4>
+                <h2 class="mb-4 ">Remove Duplicate Number</h4>
                     <div>
-                        <div class="pb-3 mb-3">
-                            <label for="" class="fw-bold font-s"> Enter your Name :</label>
-                            <input type="text" id="name" required class="rounded-2 px-3 py-1">
+                        <div class="pb-3">
+                            <label for="num" class="fw-bold font-s">Enter Number with Commas :</label>
+                            <input type="text" id="num" required class="rounded-2 px-3 py-1">
+                        </div>
+                        <div class="pb-3">
+                            <label for="unique" class="fw-bold font-s">Unique Elements:</label>
+                            <input type="text" id="unique" class="rounded-2 px-3 py-1">
                         </div>
                         <div>
                             <button class="submit button mb-3">Submit</button>
-                             <div class="font-s fw-bold"> <span id="ans">Ans :</span></div>
                         </div>
                     </div>
             </div>
         </div>
     </div>
 
-    
-
-
     <script src="./assets/js/jquery.js"></script>
     <script>
-        let name = document.getElementById("name")
-        let ans = document.getElementById("ans")
-
-        function palindrome(name) {
-            let arr = [];
-            arr = name;
-
-            if (name !== name.split(``).reverse(``).join(``)) {
-                ans = document.getElementById("ans").innerHTML = `It's Not Palindrome String!!!`
-            } else {
-                ans = document.getElementById("ans").innerHTML = `It's A Palindrome String....`
-            }
+        function checkDuplicate(num) {
+            let uniqueNum = [...new Set(num)];
+            document.getElementById("unique").value = uniqueNum.join(",");
         }
-
         $(document).ready(function () {
             $(".submit").on("click", function () {
-                palindrome(name.value);
+                let userInput = document.getElementById("num").value;
+                let numbers = userInput.split(",").map(Number).filter(n => !isNaN(n));
+                checkDuplicate(numbers);
             })
-        });
+        })
     </script>
 </body>
 

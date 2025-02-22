@@ -31,6 +31,33 @@
         let value = document.getElementById("val");
         let ans = document.getElementById("ans");
 
+        function upper(val) {
+            let inputStr = val;
+            let uppertxt = inputStr.toUpperCase();
+            ans.value = uppertxt;
+        }
+
+        function lower(val) {
+            let inputStr = val;
+            let lowertxt = inputStr.toLowerCase();
+            ans.value = lowertxt;
+        }
+
+        function toggle(val) {
+            let inputStr = val;
+            let toggleStr = "";
+
+            for(let i = 0; i < inputStr.length; i++){
+                let char = inputStr[i];
+                if(char === char.toUpperCase()){
+                    toggleStr += char.toLowerCase();
+                } else {
+                    toggleStr += char.toUpperCase();
+                }
+                ans.value = toggleStr;
+            }
+        }
+
 
         $(document).ready(function () {
             $(".upper").on("click", function () {

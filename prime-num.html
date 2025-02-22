@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+</head>
+<body>
+    
+    <div class="m-2">
+        <h4>Prime Number</h4>
+        <label for="num">Enter Number with Commas :</label>
+        <input type="text" id="num" required>
+        <button class="submit">Submit</button>
+    </div>
+    <div class="mt-4 m-2">
+        <label for="prime">Prime Number:</label>
+        <input type="text" id="prime">
+    </div>
+
+    <script src="./assets/js/jquery.js"></script>
+    <script>
+        let number = document.getElementById("num");
+
+        function checkPrime(number){
+            if(number <= 1) return false;
+            for(let i = 2; i * i <= number; i++){
+                if(number % i === 0){
+                    return false;
+                }
+                return true;
+            }
+        }
+        $(document).ready(function(){
+            $(".submit").on("click", function(){
+                let userInput = document.getElementById("num").value.trim();
+                let numbers = userInput.split(',').map(Number).filter(n => !isNaN(n));
+                checkPrime(numbers);
+
+                let primeNumbers = numbers.filter(checkPrime);
+                document.getElementById("prime").value = primeNumbers.join(",");
+            })
+        })
+    </script>
+</body>
+</html>

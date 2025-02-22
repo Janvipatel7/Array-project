@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body class="">
+    <div class="container mt-5">
+        <div class="d-flex align-item-center justify-content-center">
+            <div class="m-3 text-center  box ">
+                <div class="floating-shadow"></div>
+
+                <h2 class="mb-4 ">Anagrams</h4>
+                    <div>
+                        <div class="pb-4">
+                            <label for="value1" class="fw-bold font-s">Enter 1st String :</label>
+                            <input type="text" id="val1" required class="rounded-2 px-3 py-1">
+                        </div>
+                        <div class="pb-4">
+                            <label for="value2" class="fw-bold font-s">Enter 2nd String :</label>
+                            <input type="text" id="val2" required class="rounded-2 px-3 py-1">
+                        </div>
+                        <div><button class="submit button mb-3">Submit</button>
+                            <div class="fw-bold font-s">Ans : <span id="ans"></span></div>
+                        </div>
+                     </div>
+            </div>
+        </div>
+
+
+        <script src="./assets/js/jquery.js"></script>
+        <script>
+            function checkAnagrams() {
+                let ans1 = document.getElementById("val1").value.toLowerCase();
+                let ans2 = document.getElementById("val2").value.toLowerCase();
+
+                let firstSorted = ans1.split("").sort().join("");
+                let secondSorted = ans2.split("").sort().join("");
+
+                if (firstSorted === secondSorted) {
+                    document.getElementById("ans").innerHTML = "It Is An Anagram !";
+                } else {
+                    document.getElementById("ans").innerHTML = "It Is Not An Anagram !";
+                }
+            }
+
+            $(document).ready(function () {
+                $(".submit").on("click", function () {
+                    checkAnagrams();
+                })
+            })
+        </script>
+</body>
+
+</html>
