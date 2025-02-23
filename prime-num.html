@@ -5,32 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
+<body class="bg">
+    <div class="container mt-5">
+        <div class="d-flex align-item-center justify-content-center">
+            <div class="m-3 text-center  box ">
+                <div class="floating-shadow"></div>
+
+                <h2 class="mb-4 ">Prime Number Or Not</h4>
+                    <div>
+                        <div class="pb-4">
+                            <label for="num"  class="fw-bold font-s">Enter Number with Commas :</label>
+                            <input type="text" id="num" required class="rounded-2 px-3 py-1">
+                        </div>
+                        <div class="pb-4">
+                            <label for="prime" class="fw-bold font-s">Prime Number:</label>
+                            <input type="text" id="prime" class="rounded-2 px-3 py-1">
+                        </div>
+                        <div>
+                            <button class="submit button mb-3">Submit</button>
+                        </div>
+                     </div>
+            </div>
+        </div>
+    </div>
+
     
-    <div class="m-2">
-        <h4>Prime Number</h4>
-        <label for="num">Enter Number with Commas :</label>
-        <input type="text" id="num" required>
-        <button class="submit">Submit</button>
-    </div>
-    <div class="mt-4 m-2">
-        <label for="prime">Prime Number:</label>
-        <input type="text" id="prime">
-    </div>
+    
 
     <script src="./assets/js/jquery.js"></script>
     <script>
         let number = document.getElementById("num");
 
         function checkPrime(number){
-            if(number <= 1) return false;
+            if(number < 2) return false;
             for(let i = 2; i * i <= number; i++){
                 if(number % i === 0){
                     return false;
                 }
-                return true;
             }
+            return true;
         }
         $(document).ready(function(){
             $(".submit").on("click", function(){

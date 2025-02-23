@@ -3,16 +3,81 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
+    text-decoration: none !important;
+    list-style: none !important;
 }
+
 .container{
     max-width: 1320px;
     margin: auto;
 }
-body{
+.index-bg{
+    background-image: url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg{
     background-color: #d7d2ad!important;
     font-family: "Rubik", serif;
 }
+.a-link{
+    background-color: white;
+    transition: all 0.2s linear;
+}
+.a-link a{
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+}
+.a-link:hover{
+    outline: 4px solid #e91e63;
+    transform: translate(-4px -4px);
+}
+.rounde-num::before{
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(242, 242, 242);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 77px;
+    font-size: 25px;
+    color: rgb(68, 109, 118);
+    font-weight: bold;
+    text-align: center;
+    margin-left: 12px;
+    margin-right: 50px;
+    pointer-events: none;
+    transition: 0.4s all;
+}
+.rounde-num.op1::before{
+    content: "1";
+}
+.rounde-num.op2::before{
+    content: "2";
+}
+.rounde-num.op3::before{
+    content: "3";
+}
+.rounde-num.op4::before{
+    content: "4";
+}
+.rounde-num.op5::before{
+    content: "5";
+}
+.rounde-num.op6::before{
+    content: "6";
+}
+.rounde-num.op7::before{
+    content: "7";
+}
+.rounde-num.op8::before{
+    content: "8";
+}
+
+
 .box{
     width: 400px;
     padding:20px;
@@ -43,6 +108,23 @@ body{
     box-shadow: 4px 4px  rgba(0 , 0 , 0 , 0.3) !important;
 }
 .button:active{
+    transform: translate(0) !important;
+    box-shadow: none !important;
+}
+.button-black{
+    padding: 13px 30px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: black !important;
+    color: white;
+    transition: all 0.3s ease;
+}
+.button-black:hover{
+    transform: translate(-4px -4px);
+    box-shadow: 4px 4px  rgba(201, 46, 103, 0.908) !important;
+}
+.button-black:active{
     transform: translate(0) !important;
     box-shadow: none !important;
 }

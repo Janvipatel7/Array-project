@@ -5,25 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
+<body class="bg">
+    <div class="container mt-5">
+        <div class="d-flex align-item-center justify-content-center">
+            <div class="m-3 text-center box ">
+                <div class="floating-shadow"></div>
 
-    <div class="m-2">
-        <h4>Second Largest & Smallest Number</h4>
-        <label for="num">Enter Number with Commas :</label>
-        <input type="text" id="num" required>
-        <button class="submit">Submit</button>
-        <label for="sort">Sorted Array:</label>
-        <input type="text" id="sort">
+                <h2 class="mb-4">Second Largest & Smallest Number</h4>
+                    <div>
+                        <div class="pb-3 mb-3">
+                            <label for="num" class="fw-bold font-s">Enter Number with Commas :</label>
+                            <input type="text" id="num" required class="rounded-2 px-3 py-1">
+                        </div>
+                        <div class="pb-3 mb-3">
+                            <label for="sort" class="fw-bold font-s">Sorted Array :</label>
+                            <input type="text" id="sort"  class="rounded-2 px-3 py-1">
+                        </div>
+                        <div class="pb-3 mb-3">
+                            <label for="small" class="fw-bold font-s">Second Smallest Number:</label>
+                            <input type="text" id="small" class="rounded-2 px-3 py-1">
+                        </div>
+                        <div class="pb-3 mb-3">
+                            <label for="big" class="fw-bold font-s">Second Largest Number:</label>
+                            <input type="text" id="big" class="rounded-2 px-3 py-1">
+                        </div>
+                        <div>
+                            <button class="submit button mb-3">Submit</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
     </div>
-    <div class="mt-4 m-2">
-        <label for="small">Second Smallest Number:</label>
-        <input type="text" id="small">
-    </div>
-    <div class="mt-4 m-2">
-        <label for="big">Second Largest Number:</label>
-        <input type="text" id="big">
-    </div>
+
+
+    
 
     <script src="./assets/js/jquery.js"></script>
     <script>
