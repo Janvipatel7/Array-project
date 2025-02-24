@@ -16,7 +16,7 @@
                 <h2 class="mb-4 ">Vowels and Consonant</h4>
                     <div>
                         <div class="pb-4">
-                            <label for="string" class="fw-bold font-s">Enter Your String :</label>
+                            <label for="string" class=" font-s">Enter Your String :</label>
                             <input type="text" id="string" required class="rounded-2 px-3 py-1">
                         </div>
                        
@@ -33,12 +33,26 @@
 
 
     <script src="./assets/js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         let string = document.getElementById("string");
         let ans = document.getElementById("ans");
 
         const vowels = ['a', 'e', 'i', 'o', 'u'];
+        const checkValid = () => {
+            if (string.value == "") {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "Error",
+                    title: "⚠️ Enter valid input !",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                return false;
+            }
+            return true;
 
+        }
         function checkVowels(string){
             let vowelsCount = 0, consonantsCount = 0;
             for(let letter of string.toLowerCase()){
@@ -53,6 +67,7 @@
 
         $(document).ready(function (){
             $(".submit").on("click", function(){
+                if(!checkValid())return;
                 checkVowels(string.value);
             })
         })

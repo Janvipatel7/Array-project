@@ -18,29 +18,32 @@
                 <h2 class="mb-4">Palindrome Or Not</h4>
                     <div>
                         <div class="pb-3 mb-3">
-                            <label for="" class="fw-bold font-s"> Enter your Name :</label>
+                            <label for="" class=" font-s"> Enter your Name :</label>
                             <input type="text" id="name" required class="rounded-2 px-3 py-1">
                         </div>
                         <div>
                             <button class="submit button mb-3">Submit</button>
-                             <div class="font-s fw-bold"> <span id="ans">Ans :</span></div>
+                            <div class="font-s fw-bold"> <span id="ans">Ans :</span></div>
                         </div>
                     </div>
             </div>
         </div>
     </div>
 
-    
+
 
 
     <script src="./assets/js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         let name = document.getElementById("name")
         let ans = document.getElementById("ans")
-
+console.log(name)
         function palindrome(name) {
             let arr = [];
             arr = name;
+
+           
 
             if (name !== name.split(``).reverse(``).join(``)) {
                 ans = document.getElementById("ans").innerHTML = `It's Not Palindrome String!!!`
@@ -51,7 +54,17 @@
 
         $(document).ready(function () {
             $(".submit").on("click", function () {
-                palindrome(name.value);
+                if (name.value == "") {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "Error",
+                    title: "⚠️ Enter valid input !",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                return;
+            }
+                palindrome(name.value.toLowerCase());
             })
         });
     </script>

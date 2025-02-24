@@ -18,15 +18,15 @@
                 <h2 class="mb-4 ">Remove Duplicate Number</h4>
                     <div>
                         <div class="pb-3">
-                            <label for="num" class="fw-bold font-s">Enter Number with Commas :</label>
+                            <label for="num" class=" font-s">Enter Number with Commas :</label>
                             <input type="text" id="num" required class="rounded-2 px-3 py-1">
                         </div>
                         <div class="pb-3">
-                            <label for="unique" class="fw-bold font-s">Unique Elements:</label>
+                            <label for="unique" class=" font-s">Unique Elements:</label>
                             <input type="text" id="unique" class="rounded-2 px-3 py-1">
                         </div>
                         <div>
-                            <button class="submit button mb-3">Submit</button>
+                            <button class="submit button mb-3">Check</button>
                         </div>
                     </div>
             </div>
@@ -34,14 +34,30 @@
     </div>
 
     <script src="./assets/js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function checkDuplicate(num) {
             let uniqueNum = [...new Set(num)];
             document.getElementById("unique").value = uniqueNum.join(",");
+            
         }
+        
         $(document).ready(function () {
             $(".submit").on("click", function () {
                 let userInput = document.getElementById("num").value;
+
+                if (userInput === "") {
+                    Swal.fire({
+                    position: "top-end",
+                    icon: "⚠️",
+                    title: 'Oops...',
+                    text: ' ⚠️Please enter some numbers!',
+                    showConfirmButton: false,
+                    timer: 1500
+                    });
+                
+                return; 
+                }
                 let numbers = userInput.split(",").map(Number).filter(n => !isNaN(n));
                 checkDuplicate(numbers);
             })

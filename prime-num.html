@@ -16,11 +16,11 @@
                 <h2 class="mb-4 ">Prime Number Or Not</h4>
                     <div>
                         <div class="pb-4">
-                            <label for="num"  class="fw-bold font-s">Enter Number with Commas :</label>
+                            <label for="num"  class="font-s">Enter Number with Commas :</label>
                             <input type="text" id="num" required class="rounded-2 px-3 py-1">
                         </div>
                         <div class="pb-4">
-                            <label for="prime" class="fw-bold font-s">Prime Number:</label>
+                            <label for="prime" class="font-s">Prime Number:</label>
                             <input type="text" id="prime" class="rounded-2 px-3 py-1">
                         </div>
                         <div>
@@ -35,9 +35,22 @@
     
 
     <script src="./assets/js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         let number = document.getElementById("num");
+        const checkValid = () => {
+            if (number.value == "") {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "Error",
+                    title: "⚠️ Enter valid input !",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                return;
+            }
 
+        }
         function checkPrime(number){
             if(number < 2) return false;
             for(let i = 2; i * i <= number; i++){
@@ -49,6 +62,7 @@
         }
         $(document).ready(function(){
             $(".submit").on("click", function(){
+                checkValid()
                 let userInput = document.getElementById("num").value.trim();
                 let numbers = userInput.split(',').map(Number).filter(n => !isNaN(n));
                 checkPrime(numbers);

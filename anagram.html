@@ -18,22 +18,24 @@
                 <h2 class="mb-4 ">Anagrams</h4>
                     <div>
                         <div class="pb-4">
-                            <label for="value1" class="fw-bold font-s">Enter 1st String :</label>
-                            <input type="text" id="val1" required class="rounded-2 px-3 py-1">
+                            <label for="value1" class=" font-s">Enter 1st String :</label>
+                            <input type="text" id="val1" required class="rounded-2 px-3 py-1" placeholder="Enter 1st Word">
                         </div>
                         <div class="pb-4">
-                            <label for="value2" class="fw-bold font-s">Enter 2nd String :</label>
-                            <input type="text" id="val2" required class="rounded-2 px-3 py-1">
+                            <label for="value2" class=" font-s">Enter 2nd String :</label>
+                            <input type="text" id="val2" required class="rounded-2 px-3 py-1" placeholder="Enter 2nd Word">
                         </div>
-                        <div><button class="submit button mb-3">Submit</button>
-                            <div class="fw-bold font-s">Ans : <span id="ans"></span></div>
+                        <div><button class="submit button mb-3">Check </button>
+                            <div class="fw-bold font-s">Ans : <span id="ans" placeholder="Result Will Appear Here"></span></div>
                         </div>
-                     </div>
+                    </div>
             </div>
+
         </div>
     </div>
 
         <script src="./assets/js/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             function checkAnagrams() {
                 let ans1 = document.getElementById("val1").value.toLowerCase();
@@ -42,7 +44,17 @@
                 let firstSorted = ans1.split("").sort().join("");
                 let secondSorted = ans2.split("").sort().join("");
 
-                if (firstSorted === secondSorted) {
+                if(firstSorted === "" || secondSorted === ""){
+            
+                    Swal.fire({
+                    position: "top-end",
+                    icon: "⚠️",
+                    title: "",
+                    text: '"⚠️ Please Enter A Valid Input"',
+                    showConfirmButton: false,
+                    timer: 1500
+                    });
+                }else if (firstSorted === secondSorted) {
                     document.getElementById("ans").innerHTML = "It Is An Anagram !";
                 } else {
                     document.getElementById("ans").innerHTML = "It Is Not An Anagram !";

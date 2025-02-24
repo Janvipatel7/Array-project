@@ -16,19 +16,19 @@
                 <h2 class="mb-4">Second Largest & Smallest Number</h4>
                     <div>
                         <div class="pb-3 mb-3">
-                            <label for="num" class="fw-bold font-s">Enter Number with Commas :</label>
+                            <label for="num" class=" font-s">Enter Number with Commas :</label>
                             <input type="text" id="num" required class="rounded-2 px-3 py-1">
                         </div>
                         <div class="pb-3 mb-3">
-                            <label for="sort" class="fw-bold font-s">Sorted Array :</label>
+                            <label for="sort" class=" font-s">Sorted Array :</label>
                             <input type="text" id="sort"  class="rounded-2 px-3 py-1">
                         </div>
                         <div class="pb-3 mb-3">
-                            <label for="small" class="fw-bold font-s">Second Smallest Number:</label>
+                            <label for="small" class=" font-s">Second Smallest Number:</label>
                             <input type="text" id="small" class="rounded-2 px-3 py-1">
                         </div>
                         <div class="pb-3 mb-3">
-                            <label for="big" class="fw-bold font-s">Second Largest Number:</label>
+                            <label for="big" class=" font-s">Second Largest Number:</label>
                             <input type="text" id="big" class="rounded-2 px-3 py-1">
                         </div>
                         <div>
@@ -43,9 +43,24 @@
     
 
     <script src="./assets/js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        let number = document.getElementById(num);
+        let number = document.getElementById("num");
+        const checkValid = () => {
+            if (number.value == "") {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "Error",
+                    title: "⚠️ Enter valid input !",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                return false;
+            }
+            return true;
 
+        }
+       
         function findSmallLargeNum(arr) {
             arr.sort((a, b) => a - b);
             document.getElementById("sort").value = arr.join(",");
@@ -58,9 +73,10 @@
         }
         $(document).ready(function () {
             $(".submit").on("click", function () {
-                let userInput = document.getElementById("num").value.trim();
-                let numbers = userInput.split(',').map(Number).filter(n => !isNaN(n));
-                findSmallLargeNum(numbers);
+                if(!checkValid())return;
+                
+                let userInput = number.value.split(',').map(Number).filter(n => !isNaN(n));
+                findSmallLargeNum(userInput);
             })
         })
     </script>
