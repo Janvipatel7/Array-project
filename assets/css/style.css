@@ -140,6 +140,12 @@
     filter: blur(10px);
     z-index: -1;
 }
+.btn-pn{
+    outline: 2px solid black;
+}
+.btn-pn a{
+    color: black !important;
+}
 @media (max-width:450px) {
     .text{
         font-size: 15px !important;

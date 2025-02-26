@@ -10,30 +10,37 @@
 </head>
 
 <body class="bg">
-    <div class="container mt-5">
-        <div class="d-flex align-item-center justify-content-center">
-            <div class="m-3 text-center box ">
-                <div class="floating-shadow"></div>
-
-                <h2 class="mb-4">Upper / Lower / Toggle Case</h4>
-                    <div>
-                        <div class="pb-3 mb-3">
-                            <label for="val" class="font-s">Enter Your String :</label>
-                            <input type="text" id="val" required class="rounded-2 px-3 py-1">
-                        </div>
-                        <div class="pb-3 mb-3">
-                            <label for="ans" class="font-s">Ans Your String :</label>
-                            <input type="text" name="" id="ans" class="rounded-2 px-3 py-1">
-                        </div>
+    <section class="container mt-5">
+        <div>
+            <div class="d-flex align-item-center justify-content-center">
+                <div class="m-3 text-center box ">
+                    <div class="floating-shadow"></div>
+    
+                    <h2 class="mb-4">Upper / Lower / Toggle Case</h4>
                         <div>
-                            <button class="upper submit button mb-3">Upper Case</button><br>
-                            <button class="lower button-black mb-3">Lower Case</button><br>
-                            <button class="toggle submit button mb-3">Toggle Case</button>
+                            <div class="pb-3 mb-3">
+                                <label for="val" class="font-s">Enter Your String :</label>
+                                <input type="text" id="val" required class="rounded-2 px-3 py-1" placeholder="Enter A Word"> 
+                            </div>
+                            <div class="pb-3 mb-3">
+                                <label for="ans" class="font-s">Ans Your String :</label>
+                                <input type="text" name="" id="ans" class="rounded-2 px-3 py-1" placeholder="Result Will Appear Here">
+                            </div>
+                            <div>
+                                <button class="upper submit button mb-3">Upper Case</button><br>
+                                <button class="lower button-black mb-3">Lower Case</button><br>
+                                <button class="toggle submit button mb-3">Toggle Case</button>
+                            </div>
                         </div>
-                    </div>
+                </div>
             </div>
+            <div class=" pt-2 mt-2 d-flex justify-content-center gap-5">
+                <button class="btn btn-pn" type="button"><a href="./longestword.html" class="text-white fw-bold text-decoration-none"> << prev</a></button>
+                <button class="btn btn-pn" type="button"><a href="./duplicate-num-remove.html" class="text-white fw-bold text-decoration-none">Next >></a></button>
+            </div>
+    
         </div>
-    </div>
+    </section>
 
 
     <script src="./assets/js/jquery.js"></script>
